@@ -7,6 +7,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+  inputs:
+    listValues:
+      description: 'A list of values to process'
+      required: true
+      default: 'value1,value2,value3'
 
     steps:
       - uses: actions/checkout@v4
