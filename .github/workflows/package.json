@@ -1,0 +1,12 @@
+{
+    "name": "Organization Workflow",
+    "description": " workflow.",
+    "iconName": "example-icon",
+    "categories": [
+        "Go"
+    ],
+    "filePatterns": [
+        "package.json$"
+          ]
+}
+
