@@ -10,7 +10,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
       - name: Set List Values
+        run: echo "LIST_VALUES=${{ inputs.listValues }}" >> $GITHUB_ENV
+
+      - name: Process List Values
+        run: |
+          IFS=',' read -ra VALUES <<< "$LIST_VALUES"
+          for value in "${VALUES[@]}"; do
+            echo "Processing value: $value"
+            # Add your custom logic here done
+    steps:
+       - name: Set List Values
         uses: actions/setup-node@v3
         with:
           node-version: '14'
