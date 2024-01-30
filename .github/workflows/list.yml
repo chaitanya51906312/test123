@@ -12,11 +12,16 @@ jobs:
       description: 'A list of values to process'
       required: true
       default: 'value1,value2,value3'
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-        path: ./package.json
+steps:
+ – name: Checkout repository
+   uses: actions/checkout@v3
+  – name: Read package.json
+    id: package
+    uses: juliangruber/read-file-action@v1
+    with:
+      path: ./package.json
+  – name: Echo package.json
+    run: echo “${{ steps.package.outputs.content }}”
 
       - name: Run a one-line script
         run: echo Hello from Organization
