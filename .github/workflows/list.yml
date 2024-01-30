@@ -23,5 +23,3 @@ with:
 -name: Echo package.json
 run: echo “${{ steps.package.outputs.content }}”
 
- - name: Run a one-line script
-   run: echo Hello from Organization
