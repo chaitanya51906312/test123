@@ -1,25 +1,20 @@
-name: Organization CI
+name: Example Workflow
 
 on:
   push:
-    branches: main
-  
-jobs:
-  build:
-    runs-on: ubuntu-latest
-  inputs:
-    listValues:
-      description: 'A list of values to process'
-      required: true
-      default: 'value1,value2,value3'
-steps:
- - name: Checkout repository
-   uses: actions/checkout@v3
- - name: Read package.json
-   id: package
-   uses: juliangruber/read-file-action@v1
-with:
-      path: ./package.json
--name: Echo package.json
-run: echo “${{ steps.package.outputs.content }}”
+    branches:
+      - main
 
+jobs:
+  example_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set List Values
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          listValues: 'value1,value2,value3'  # This is where you define the input
+
+      - name: Show List Values
+        run: echo "List Values: $LIST_VALUES"
