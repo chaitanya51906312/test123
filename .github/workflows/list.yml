@@ -13,15 +13,15 @@ jobs:
       required: true
       default: 'value1,value2,value3'
 steps:
- – name: Checkout repository
+ - name: Checkout repository
    uses: actions/checkout@v3
-  – name: Read package.json
-    id: package
-    uses: juliangruber/read-file-action@v1
-    with:
+ - name: Read package.json
+   id: package
+   uses: juliangruber/read-file-action@v1
+with:
       path: ./package.json
-  – name: Echo package.json
-    run: echo “${{ steps.package.outputs.content }}”
+-name: Echo package.json
+run: echo “${{ steps.package.outputs.content }}”
 
-      - name: Run a one-line script
-        run: echo Hello from Organization
+ - name: Run a one-line script
+   run: echo Hello from Organization
