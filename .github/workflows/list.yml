@@ -12,22 +12,5 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-
-      - name: Set List Values
-        run: echo "LIST_VALUES=${{ inputs.listValues }}" >> $GITHUB_ENV
-
-      - name: Process List Values
-        run: |
-          IFS=',' read -ra VALUES <<< "$LIST_VALUES"
-          for value in "${VALUES[@]}"; do
-            echo "Processing value: $value"
-            # Add your custom logic here done
-    steps:
-       - name: Set List Values
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-          listValues: 'value1,value2,value3'  # This is where you define the input
-
       - name: Show List Values
         run: echo "List Values: $LIST_VALUES"
