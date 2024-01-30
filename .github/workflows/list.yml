@@ -10,7 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Set List Values
+        run: echo "LIST_VALUES=value1,value2,value3" >> $GITHUB_ENV
+
       - name: Checkout Repository
         uses: actions/checkout@v2
+
       - name: Show List Values
         run: echo "List Values: $LIST_VALUES"
+
